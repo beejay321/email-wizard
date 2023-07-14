@@ -7,7 +7,13 @@
       class="imageUrl"
     />
     <img :src="imageUrl" v-if="imageUrl" class="image" />
-    <textarea class="text-area" v-model="text" placeholder="Enter text" />
+    <textarea
+      class="text-area"
+      cols="30"
+      rows="10"
+      v-model="text"
+      placeholder="Enter text"
+    />
   </div>
 </template>
 
@@ -26,20 +32,28 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .imageUrl {
   margin-top: 5px;
   height: 30px;
   border: none;
+}
+.imageUrl:hover {
+  border: 2px solid rgb(130, 130, 130);
 }
 .image {
   margin-top: 5px;
   border: none;
   background-color: rgb(255, 255, 255);
 }
+
 .text-area {
   margin-top: 5px;
   border: none;
   width: 50%;
   background-color: rgb(255, 255, 255);
+}
+.text-area:hover {
+  border: 2px solid rgb(130, 130, 130);
 }
 </style>

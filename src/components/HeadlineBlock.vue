@@ -25,6 +25,10 @@ export default {
   height: 30px;
   min-width: auto;
   font-size: 25px;
-  // background-color: rgb(255, 255, 255);
 }
+.headline:hover {
+  border: 2px solid rgb(130, 130, 130);
+
+}
+
 </style>

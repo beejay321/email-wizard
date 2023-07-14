@@ -24,11 +24,16 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .imageUrl {
   margin-top: 5px;
   height: 30px;
   border: none;
 }
+.imageUrl:hover {
+  border: 2px solid rgb(130, 130, 130);
+}
+
 .image {
   margin-top: 5px;
   border: none;

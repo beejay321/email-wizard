@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <textarea class="text-area" v-model="text" placeholder="Enter text" />
-  </div>
+  <textarea
+    class="text-area"
+    cols="30"
+    rows="10"
+    v-model="text"
+    placeholder="Enter text"
+  />
 </template>
 
 <script>
@@ -19,5 +23,8 @@ export default {
   border: none;
   width: 50%;
   background-color: rgb(255, 255, 255);
+}
+.text-area:hover {
+  border: 2px solid rgb(130, 130, 130);
 }
 </style>

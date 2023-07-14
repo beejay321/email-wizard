@@ -21,13 +21,15 @@ export default {
   font-family: "Rubik", sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .container {
   max-width: 900px;
   margin: 0 auto;
   width: 100vw;
-  background-color: rgb(245, 245, 245);
+  height: 100vh;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
 }
 </style>
