@@ -2,7 +2,7 @@
   <div class="container">
     <div class="nav-bar">
       <nav class="nav-brand">
-        <span>Email Wizard</span>
+        <span>Wizard</span>
       </nav>
       <ul class="tools">
         <li
@@ -27,9 +27,11 @@
 
   <div>
     <div @dragover.prevent="dragOver" @drop="dropItem" class="droplocation">
-      <div v-for="(content, index) in dropContent" :key="index" class="block">
+      <div class="block" v-for="(content, index) in dropContent" :key="index">
         <component :is="content.type" v-model="content.content" />
-        <button class="remove-btn" @click="removeBlock(index)">remove</button>
+        <button class="remove-btn" @click="removeBlock(index)">
+          <font-awesome-icon :icon="['fas', 'circle-xmark']" />
+        </button>
       </div>
     </div>
   </div>
@@ -42,7 +44,6 @@ import ImageTextBlock from "./ImageTextBlock.vue";
 import HeadlineBlock from "./HeadlineBlock.vue";
 
 export default {
-  name: "Wizard",
   components: {
     HeadlineBlock,
     TextBlock,
@@ -63,10 +64,10 @@ export default {
   methods: {
     dragStart(event, block) {
       event.dataTransfer.setData("content-block", block);
-      console.log("dragging", block);
+      // console.log("dragging", block);
     },
     dragOver() {
-      console.log("text is dragging over");
+      // console.log("text is dragging over");
     },
     dropItem(event) {
       const itemDropped = event.dataTransfer.getData("content-block");
@@ -79,7 +80,7 @@ export default {
       } else if (itemDropped === "ImageText") {
         this.dropContent.push({ type: ImageTextBlock, content: "" });
       }
-      console.log(itemDropped, "is dropped");
+      // console.log(itemDropped, "is dropped");
     },
     removeBlock(index) {
       this.dropContent.splice(index, 1);
@@ -93,12 +94,11 @@ export default {
   padding: 0px 24px;
   display: flex;
   justify-content: space-around;
-  border: 0.2px solid rgb(240, 240, 240);
   background-color: rgb(240, 240, 240);
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 13px 13px 0px 0px;
 }
 .nav-brand {
-  padding: 16px 24px;
+  padding: 0px 24px;
   display: flex;
   align-items: center;
   border-right: 0.2px solid rgb(231, 231, 231);
@@ -117,11 +117,11 @@ export default {
   gap: 12px;
 }
 .tools li {
-  padding: 16px 22px;
+  padding: 6px 22px;
   border: 0.2px solid rgb(231, 231, 231);
   border-radius: 16px;
   cursor: move;
-  width: 70px;
+  max-width: 70px;
   display: flex;
   margin: 8px 0px;
   justify-content: center;
@@ -132,7 +132,6 @@ export default {
   font-size: 1.05em;
   box-shadow: 5px 3px 3px rgb(217, 217, 217);
   background-color: rgba(255, 255, 255, 0.335);
-
 }
 
 .send-btn {
@@ -149,16 +148,15 @@ export default {
 }
 .droplocation {
   padding: 12px 10px;
-  height: 70vh;
-  border-radius: 0px 0px 15px 15px;
+  min-height: calc(100vh - 100px);
 }
-
+.block {
+  display: flex;
+}
 .remove-btn {
   background-color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
-}
-.remove-btn:hover {
-  box-shadow: 3px 1px 1px rgb(217, 217, 217);
+  display: none;
 }
 </style>
